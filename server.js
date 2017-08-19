@@ -9,6 +9,82 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+var articles = {
+    articleOne: {
+        title: 'Article One | Girish Vidhani',
+        heading: 'Article One',
+        date: 'August 18, 2017',
+        content: `
+            <p>
+                This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.
+            </p>
+            
+            <p>
+                This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.
+            </p>
+            <p>
+                This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.
+            </p>`
+                 },
+    articleTwo: {
+        title: 'Article Two | Girish Vidhani',
+        heading: 'Article Two',
+        date: 'August 18, 2017',
+        content: `
+            <p>
+                This is the content for my second article.
+            </p>`
+                 },             
+    articleThree: {
+        title: 'Article Three | Girish Vidhani',
+        heading: 'Article Two',
+        date: 'August 18, 2017',
+        content: `
+            <p>
+                This is the content for my third article.
+            </p>`
+                 }             
+}
+
+function createTemplate(data){
+        var title =data.title;
+        var date = data.date;
+        var heading = data.heading;
+        var content = data.content;
+        
+        var htmlTemplate =`
+        
+                <html>
+                <head>
+                    <title>
+                    Article Three | Girish Vidhani
+                    </title>
+                    <meta name="viewport" content="width=device-width, initial-scale=1" />
+                    <link href="/ui/style.css" rel="stylesheet" />
+                </head>
+            <body>
+                <div class="container">
+                    <div>
+                        <a href="/">Home</a>
+                    </div>
+                    <hr/>
+                    <h3>
+                       Article Three        
+                    </h3>
+                    <div>
+                        August 18,2017
+                    </div>    
+                    <p>
+                        This is the content for my third article.
+                    </p>
+                </div>
+            </body>
+            </html>`
+        return htmlTemplate;
+
+}
+
+
 app.get('/article-one',function (req,res){
   res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
 });
