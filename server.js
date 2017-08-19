@@ -37,7 +37,7 @@ var articles = {
                  },             
     'article-three': {
         title: 'Article Three | Girish Vidhani',
-        heading: 'Article Two',
+        heading: 'Article Three',
         date: 'August 20, 2017',
         content: `
             <p>
