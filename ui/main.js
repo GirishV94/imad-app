@@ -19,6 +19,6 @@ button.onclick = function(){
         }//Note Done Yet
     };
     //make a response to counter var
-    request.open('GET', 'http://gvidhani99.imad.hasura-app.io/', true);
+    request.open('GET', 'http://gvidhani99.imad.hasura-app.io/counter', true);
     request.send(null);
 };
