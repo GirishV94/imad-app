@@ -8,7 +8,7 @@ button.onclick = function(){
    
    
     // cap res and store in var
-    request.onreadystatechange = function(){
+    request.onreadystatechange = function() {
         if(request.readyState === XMLHttpRequest.DONE){
             //Take some action
             if(request.respond === 200){
