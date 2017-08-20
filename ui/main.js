@@ -1,17 +1,14 @@
-console.log('Loaded!');
-var element = document.getElementById('main-text');
-element.innerHTML = "NewValue";
+//counter code
+var button = document.getElementById('counter');
+var counter = 0;
+button.onclick = function(){
+    //make a response to counter var
+    
+    // cap res and store in var
+    
+    // render the res in correct span
 
-var img = document.getElementById('madi');
-
-var marginLeft = 0;
-function moveRight(){
-    marginLeft = marginLeft + 1;
-    img.style.marginLeft = marginLeft + 'px';
-    }
-img.onclick = function(){
-    var interval = setInterval(moveRight, 100);
-    img.style.marginleft = '100px';
+    counter = counter+ 1;
+    var span = document.getElementById('count');
+    span.innerHTML = counter.toString();
 };
-
-
