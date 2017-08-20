@@ -3,13 +3,22 @@ var button = document.getElementById('counter');
 var counter = 0;
 
 button.onclick = function(){
-    //make a response to counter var
-    
+    // create the request object
+    var request = new XMLHttpRequest();
     // cap res and store in var
     
     // render the res in correct span
-
-    counter = counter+ 1;
-    var span = document.getElementById('count');
-    span.innerHTML = counter.toString();
+    request.onreadystatechange = function(){
+        if(request.readyState === XMLHttpRequest.DONE){
+            //Take some action
+            if(request.respond === 200){
+                var counter = request.respondText;
+                var span = document.getElementById('count');
+                span.innerHTML = counter.toString();
+            }
+        }//Note Done Yet
+    };
+    //make a response to counter var
+    request.open('GET', 'http://gvidhani99.imad.hasura-app.io/', true);
+    request.send(null);
 };
