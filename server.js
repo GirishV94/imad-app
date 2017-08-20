@@ -5,10 +5,6 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
-});
-
 var articles = {
     'article-one': {
         title: 'Article One | Girish Vidhani',
@@ -84,6 +80,16 @@ function createTemplate(data){
         return htmlTemplate;
 
 }
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
+
+var counter = 0;
+app.get('/counter', function(res,req){
+   counter = counter + 1;
+   res.send(counter.toString());
+});
 
 
 app.get('/:articleName',function (req,res){
