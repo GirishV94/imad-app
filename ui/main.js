@@ -22,3 +22,11 @@ button.onclick = function() {
     request.open('GET', 'http://gvidhani99.imad.hasura-app.io/counter', true);
     request.send(null);
 };
+
+
+//submit name
+var nameInput = document.getElementById('name');
+var name = nameInput.value;
+
+
+
