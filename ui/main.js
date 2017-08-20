@@ -5,9 +5,9 @@ var counter = 0;
 button.onclick = function(){
     // create the request object
     var request = new XMLHttpRequest();
+   
+   
     // cap res and store in var
-    
-    // render the res in correct span
     request.onreadystatechange = function(){
         if(request.readyState === XMLHttpRequest.DONE){
             //Take some action
