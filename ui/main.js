@@ -30,15 +30,31 @@ var name = nameInput.value;
 var submit = document.getElementById('submit_btn');
 submit.onclick=function(){
 //make a request to the server and send the name
+    var request = new XMLHttpRequest();
+   
+   
+    // cap res and store in var
+    request.onreadystatechange = function() {
+        if(request.readyState === XMLHttpRequest.DONE){
+            //Take some action
+            if(request.status === 200){
+                //capture a list of names and render it as a list.
+                    var names =request.responseText;
+                    names = JSON.parse(names);
+                    var list = '';
+                    for (var i=0; i< names.length; i++){
+                        list += '<li>' + names[i] + '</li>';
+                    }
+                    var ul = document.getElementById('namelist');
+                    ul.innerHTML = list;
+    
+            }
+        }//Note Done Yet
+    };
+    //make a response to counter var
+    request.open('GET', 'http://gvidhani99.imad.hasura-app.io/submit-name?name=' +name, true);
+    request.send(null);
 
-//capture a list of names and render it as a list.
-var names = ['name1','name2','name3','name4'];
-var list = '';
-for (var i=0; i< names.length; i++){
-    list += '<li>' + names[i] + '</li>';
-}
-var ul = document.getElementById('namelist');
-ul.innerHTML = list;
 };
 
 
