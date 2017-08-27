@@ -128,19 +128,18 @@ app.get('/articles/:articleName',function (req,res) {
 //  articleName === article-one
 //  articlesp[articleName] === {} content object for article one
     
-    pool.query("SELECT * FROM article WHERE title =" + req.params.articleName, fucntion(err, result) {
-            if (err){
+    pool.query("SELECT * FROM article WHERE title = '" + req.params.articleName + "'", fucntion(err, result) {
+            if (err) {
                 res.status(500).send.(err.toString());
-            } else{
+            } else {
                 if(result.rows.length === 0){
                     res.status(404).send('Article Not Found');
-                    }else{
+                 }else{
                     var articleData = result.rows[0];        
                     res.send(createTemplate(articlesData));
                     }
             }
-        
-        });
+    });
 });
 
 
