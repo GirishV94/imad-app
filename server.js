@@ -88,7 +88,7 @@ app.post('/login', function(res, req){
    var username = req.body.username;
    var password = req.body.password;
    
-   pool.query ('INSERT INTO "user" (username,password) VALUES ($1,$2)', [username,dbString], function (err, result) {
+   pool.query ('SELECT * FROM "user" WHERE username=$1', [username], function (err, result) {
     if(err){
         res.status(500).send(err.toString());
     } else{
@@ -107,8 +107,9 @@ app.post('/login', function(res, req){
                 res.send('username/password is invalid');    
             }
         }
-    }   
-    
+    }    
+
+   });   
 });
 
 
