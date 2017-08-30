@@ -94,7 +94,7 @@ app.post('/login', function(res, req){
     } else{
         if(result.rows.length === 0)
         {
-            res.send(403).send('username/password is invalid');
+            res.status(403).send('username/password is invalid');
         }
         else{
             //Match the password
@@ -104,7 +104,7 @@ app.post('/login', function(res, req){
             if(hashedPassword === dbString){
                 res.send('Credentials are correct!');
             }else{
-                res.status(403).send('username/password is invalid');    
+                res.send(403).send('username/password is invalid');    
             }
         }
     }    
